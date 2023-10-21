@@ -1,4 +1,4 @@
-package Padawan_Jedi;
+package Proyectos.Java.Estudiante;
 
 public class Estudiante {
     

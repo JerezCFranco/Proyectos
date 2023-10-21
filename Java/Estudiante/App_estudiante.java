@@ -1,4 +1,4 @@
-package Padawan_Jedi.Estudiante;
+package Proyectos.Java.Estudiante;
 
 import java.util.LinkedList;
 import java.util.Scanner;

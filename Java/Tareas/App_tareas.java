@@ -1,4 +1,4 @@
-package Java.Tareas;
+package Proyectos.Java.Tareas;
 
 import java.util.ArrayList;
 import java.util.List;
