@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+
+.nav-ul {
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el relleno por defecto de la lista */
+  margin: 0; /* Elimina los márgenes por defecto de la lista */
+}
+
+.nav-ul-li {
+  display: inline-block; /* Muestra los elementos de navegación en línea */
+}
+
+.nav-ul-li-a {
+  display: block; /* Convierte los enlaces en elementos de bloque */
+  padding: 10px; /* Agrega un relleno a los enlaces */
+  text-decoration: none; /* Elimina la decoración de texto por defecto */
+}
+
+li{
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway';
+}
+
+p {
+  line-height: 1.75;
+}
+
+#barra{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-transform: uppercase;
+
+}
+
+#barra li{
+  display: inline;
+  margin: 0px 30px;
+
+}
+
+#text{
+  text-decoration: none;
+}
+
+#text li{
+  text-decoration: none;
+}
+
+a {
+color: black; /* Color de texto normal */
+text-decoration: none; /* Eliminar decoración de subrayado por defecto */
+}
+
+a:hover {
+color: red; /* Color de texto al pasar el mouse por encima */
+}
+
+body {
+  background-image: url("https://img.freepik.com/vector-gratis/fondo-futurista-tecnologia-degradada_23-2149122421.jpg?w=996&t=st=1689450282~exp=1689450882~hmac=2827f85bc9601187b9443a5d9dae7b8fd2804f4624ec0618fffba4f2cf3626e5");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.intro .intro-text {
+left: 600;
+width: 60%;
+margin-top: 3rem;
+background-color: rgba(24, 64, 8);
+color: cornsilk;
+position: absolute;
+}
+
+.texto-mio{
+  left: 600;
+  width: 60%;
+  margin-top: 3rem;
+  background-color: rgba(24, 64, 8);
+  color: cornsilk;
+  position: absolute;
+}
+
+
+#nav-link{
+  background-color: skyblue;
+  border-radius: 6px;
+  padding: 3px 10px;
+}
+
+.web-titulo{
+  color: black; 
+  text-align: center; 
+  padding: 30px; 
+  background-color: blue; 
+  margin-top: 3rem; 
+  margin-bottom: 3rem; 
+  line-height: 1;
+
+}
+
+.web-footer{
+  padding: 30px;
+  text-align: center;
+  left: 10px;
+  bottom: 10px;
+  background-color:aqua;
+}
+
+.site-heading .site-heading-lower {
+font-size: 5rem;
+font-weight: 100;
+line-height: 4rem;
+}
+.texto-fondo{
+  background-color: aquamarine;
+  border-radius: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+
+}
+
+.page-container {
+max-width: 600px;
+max-height: 300px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.intro {
+  position: relative;
+}
+
+.intro .intro-img {
+  width: 75%;
+  float: left;
+}
+
+.page-section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}

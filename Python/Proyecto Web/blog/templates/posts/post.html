@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+{% block title %}Posts{% endblock %}
+{% block content%}
+
+<div class="container-fluid" style="margin: 20px;color: white;">
+
+  <center>
+        {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="max-width: 200px; max-height: 70px; border-radius: 10px;">
+          <div class="container-fluid">
+            <ul class="navbar-nav mx-auto">
+              <a style="background-color: rgb(126, 63, 63); border-radius: 5px; padding-top: 5px; margin-top: 10px;" class="nav-link text-uppercase login-button" href="{% url 'apps.posts:crear_post' %}">Crear post</a>
+            </ul>
+          </div>
+        </nav>
+        <br>
+        {% endif %}
+        
+        <h2 style="color: white;">Ordenar por:</h2>
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="max-width: 500px; max-height: 300px; border-radius: 10px;">
+          <div class="container">
+            <ul class="navbar-nav mx-auto">
+            <a style="background-color: brown; border-radius: 5px; padding-right: 10px; margin-right: 4px;" class="nav-link text-uppercase login-button" href="{% url 'apps.posts:posts' %}?orden=reciente">Más reciente</a>
+            <a style="background-color: gray; border-radius: 5px; padding-right: 10px; margin-right: 4px;" class="nav-link text-uppercase login-button" href="{% url 'apps.posts:posts' %}?orden=antiguo">Más antiguo</a>
+            <a style="background-color: navy; border-radius: 5px; padding-right: 10px; margin-right: 4px;" class="nav-link text-uppercase login-button" href="{% url 'apps.posts:posts' %}?orden=alfabetico">Orden alfabético</a>
+          </ul>
+        </div>
+        </nav>
+  {% if posts %}
+    {% for i in posts %}
+
+        
+
+        <section class="page-section clearfix" style="margin-bottom: 15%;color: white;">
+            <div class="container-fluid">
+              <div class="intro">
+                <div class="row" style="color: white;">
+
+                  <div class="col-md-3">
+
+                  </div>
+
+                  
+
+                  <div class="col-md-8">
+                    <a href="{% url 'apps.posts:post_individual' i.id %}">
+                      <img class="intro-alter-img img-fluid mb-3 mb-lg-0 rounded" src="{{i.imagen.url}}" alt="" style="width: 74.4%;">
+                    </a>
+                  </div>
+                  <div class="col-md-3">
+
+                  </div>
+                  
+                  <div class="col-md-6" style="text-align: center;">
+                    <div class="intro-relative-text text-center bg-faded-blue p-5 rounded">
+                      <h2 class="section-heading mb-4" >
+                        <span style="color: bisque;" class="section-heading-upper">{{i.titulo}}</span>
+                        <span class="section-heading-lower">{{i.subtitulo}}</span>
+                        <span class="section-heading-lower">{{i.contenido}}</span>
+                        <br>
+                        <a style="text-decoration: none;" href="{% url 'apps.posts:post_individual' i.id %}">Ingresá a este Post</a>
+                            
+                      </h2>
+                      <div style="text-align: left; font-size: 1em;">
+        
+                        <p style="margin-right: 50px; color: white; text-decoration: none;">Fecha de creación: {{i.publicado}}</p>
+        
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+    {% endfor%}
+{% else %}
+ <h1>No hay registros</h1>
+{% endif %}
+  </center>
+</div>
+{% endblock%}

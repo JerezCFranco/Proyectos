@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Logout{% endblock %}
+{% block content %}
+<center>
+    <div class="container-fluid" style="margin-top: 70px;margin-bottom: 70px;">
+        <div class="messagelist logout-form text-uppercase">
+            {% for message in messages %}
+                <table{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</table>
+            {% endfor %}
+        </div>
+    </div>
+</center>
+{% endblock %}

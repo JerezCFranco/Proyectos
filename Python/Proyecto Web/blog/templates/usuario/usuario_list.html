@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+{% block title %}Lista de Usuarios{% endblock %}
+{% block content %}
+<center style="margin-top: 30px;">
+<div class="container-fluid login-form">
+<h1 style="color: white;">Lista de Usuarios</h1>
+    <ul style="color: white;">
+        {% for usuario in usuarios %}
+            <li class="text-uppercase">{{ usuario.username }}</li>
+            <button class="btn btn-success"><a style="color: white;" href="{% url 'apps.usuario:usuario_delete' usuario.id %}">¿Desea eliminar el usuario?</a></button>
+            <br><br>
+        {% endfor %}
+    </ul>
+</div>
+</center>
+{% endblock %}

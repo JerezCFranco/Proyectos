@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+{% block title %}Crear Post{% endblock %}
+{% block content %}
+
+<center>
+{% if user.is_superuser or request.user|has_group:"Colaborador" %}
+<div class="crear-post-form" style="margin-bottom: 100px;">
+    <div class="container-fluid">
+    <div class="container-fluid">
+        <a style="color: white;background-color: brown; border-radius: 5px; padding-left: 5px; padding-right: 5px;" class="text-uppercase login-button" href="{% url 'apps.posts:crear_categoria' %}">Crear nueva categoría</a>
+    </div>
+
+    <h1>Crear Post</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar">
+    </form>
+ 
+</div>
+{% else %}
+    <div class="container-fluid">
+        <h1>Solo los usuarios con permisos pueden accedder a esta página</h1>
+    </div>
+{% endif %}
+</div>
+</center>
+{% endblock %}

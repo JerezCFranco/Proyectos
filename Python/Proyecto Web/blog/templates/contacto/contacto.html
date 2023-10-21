@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contacto{% endblock %}
+{% block content %}
+
+<center>
+    <form method="POST" class="contacto-form">
+    <h1>Formulario de contacto</h1>
+    <br>
+    {% if messages %}
+        {% for message in messages %}
+            <div class='message {{ message.tags }}'>{{ message }} </div>
+        {% endfor %}
+    {% endif %}
+    <table style="color: white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        {% csrf_token %}
+        {{ form }}
+    </table>
+    <input type="submit" value="Enviar">
+    </form>
+</center>
+
+
+{% endblock%}

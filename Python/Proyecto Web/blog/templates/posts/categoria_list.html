@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Lista de categorias{% endblock %}
+{% block content %}
+<center>
+<div class="container-fluid login-form" style="margin: 40px;">
+    <h1>Categorías</h1>
+    <br>
+    <ul>
+        {% for categoria in categorias %}
+            <li>{{ categoria.nombre }}
+            (<a style="color: brown;"
+            href="{% url 'apps.posts:categoria_delete' pk=categoria.pk %}">Eliminar</a>)</li>
+        {% empty %}
+            <li>No hay categorías</li>
+        {% endfor %}
+    </ul>
+</div>
+</center>
+{% endblock %}

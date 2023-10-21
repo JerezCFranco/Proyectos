@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+{% block title %}Post de {{posts.categoria}}{% endblock %}
+{% block content %}
+<center>
+    <div class="container-fluid text-center" style="margin: 20px; color: white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        <div class="post-ind-form">
+            <table><span class="text-uppercase" style="color: bisque;">{{ posts.titulo }}</table></span>
+            <table><span style="color: bisque;">{{ posts.subtitulo }}</span></table>
+            <table><span style="color: rgb(209, 135, 92);">{{ posts.categoria }}</span></table>
+            <br>
+            <table>{{ posts.texto }}</table>
+            <br>
+            {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+                <a style="color: white;background-color: rgb(39, 30, 163); border-radius: 5px; padding-left: 5px; padding-right: 5px;" class="text-uppercase login-button" href="{% url 'apps.posts:post_update' pk=posts.id %}">Modificar Post</a>
+                <a style="color: white;background-color: brown; border-radius: 5px; padding-left: 5px; padding-right: 5px;" class="text-uppercase login-button" href="{% url 'apps.posts:post_delete' pk=posts.id %}">Eliminar Post</a>
+            {% endif %}
+        </div>
+        {% if posts.imagen %}
+            <img class="img-post" src="{{ posts.imagen.url }}" alt="">
+        {% else%}
+        <div class="container-fluid login-form">
+            <p>No hay imagen disponible</p>
+        </div>
+        {% endif %}
+    </div>
+
+
+
+
+
+
+{% include 'comentario/crear_comentario.html' %}
+
+    </center>
+{% endblock%}
